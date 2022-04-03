@@ -18,7 +18,7 @@ def load_models():
         model = data['model']
     return model
 
-@app.route("/predict")
+@app.route("/", methods=['GET'])
 def predict():
     #if request.method == "POST":
         #deviceID = request.form("deviceID")
