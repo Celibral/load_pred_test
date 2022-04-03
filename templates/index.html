@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<form action="/sub" method="POST">
- <ul>
-  <li>
-    <label for="deviceID">Device ID:</label>
-    <input type="float" name="deviceID" placeholder="Device ID">
-    <input type="submit">
-  </li>
- </ul>
-</form>
-<body>    
+<head>
+    <meta charset="UTF-8">
+    <meta hhtp-equiv="X-UA-Compatible"content="IE=edge">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Load Prediction</title>
+</head>
+<body>
+    <form action="/" method="POST">
+     <ul>
+      <li>
+        <label for="deviceID">Device ID:</label>
+        <input type="float" name="deviceID" placeholder="Device ID">
+        <input type="submit">
+      </li>
+     </ul>
+    </form>  
+    
+    {%if pred%}
+        {{pred}}
+    {% endif %}
+      
+        
 </body>
 </html>

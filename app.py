@@ -18,23 +18,25 @@ def load_models():
         model = data['model']
     return model
 
-@app.route("/", methods=['GET'])
-def predict():
-    #if request.method == "POST":
-        #deviceID = request.form("deviceID")
-    return render_template("index.html")
+global prediction
 
-@app.route("/sub", methods = ['POST'])
-def submit():
+@app.route("/", methods = ["POST", "GET"])
+def predict():
+    prediction = 0
+    
+    if request.method == "GET":
+        print('GET called ...')
+       
     if request.method == "POST":
-        request_json = request.get_json()
+        print('POST called ...')
         x = [1,2.22045e-16,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	1]
         x_in = np.array(x).reshape(1,-1)
         # load model
         model = load_models()
         prediction = model.predict(x_in)[0]    
         print(prediction)
-    return render_template("sub.html", pred = prediction)
+    return render_template("index.html", pred = prediction)
+    
 
 if __name__ == "__main__":
     app.run()

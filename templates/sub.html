@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta>
+</head>
 <form action="/sub" method="POST">
  <ul>
   <li>
@@ -7,4 +10,10 @@
   </li>
  </ul>
 </form>
+<body>
+    {%if pred%}
+        {{pred}}
+    {% else %}
+        No result yet...
+</body>
 </html>
